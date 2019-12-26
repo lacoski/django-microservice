@@ -25,7 +25,7 @@ SECRET_KEY = '#-9(8ny^_^fp%3c9oyt^5spu%&bwf@%62tndik6%t(ob**7ozb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -135,3 +135,13 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': "gGXmF5Qbt5xMIGcX54rpS2vj445pqeD7",
+}
+
+KONG_ISS = '6nUklaBwcJOQeJjzHyBMHSBnMQgFqOXZ'
