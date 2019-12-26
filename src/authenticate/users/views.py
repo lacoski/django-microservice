@@ -45,6 +45,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super().get_token(user)
         token['iss'] = settings.KONG_ISS
+        token['username'] = 'thanhnb'
         return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
